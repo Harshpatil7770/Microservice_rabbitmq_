@@ -1,0 +1,5 @@
+package com.xoriant.settlement.service;
+
+public interface CurrencyExchangeService {
+
+}

@@ -1,0 +1,5 @@
+package com.xoriant.settlement.msg;
+
+public class MessageSender {
+
+}

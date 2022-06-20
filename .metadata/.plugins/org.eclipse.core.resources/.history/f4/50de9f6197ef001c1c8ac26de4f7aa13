@@ -1,0 +1,29 @@
+package com.xoriant.settlement.controller;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.xoriant.settlement.model.CurrencyExchange;
+import com.xoriant.settlement.service.CurrencyExchangeService;
+
+@RestController
+@RequestMapping("/api/currency-exchange")
+public class CurrencyController {
+
+	@Autowired
+	private CurrencyExchangeService currencyExchangeService;
+
+	@PostMapping("/save")
+	public ResponseEntity<String> addNewCurrencyExchangeDetails(@Valid @RequestBody CurrencyExchange currencyExchange) {
+		String result = currencyExchangeService.addNewCurrencyExchangeDatails(currencyExchange);
+		return new ResponseEntity<String>(result, HttpStatus.OK);
+	}
+
+}
